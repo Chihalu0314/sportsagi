@@ -35,13 +35,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setInterval(updateCountdown, 1000);
 
-    fetch('https://ipinfo.io/json?token=YOUR_API_TOKEN') // Replace 'YOUR_API_TOKEN' with your actual token
+    fetch('https://ipinfo.io/json?token=1c93e3eb65ad8b') // Replace 'YOUR_API_TOKEN' with your actual token
         .then(response => response.json())
         .then(data => {
             const ip = data.ip;
             const city = data.city;
             const region = data.region;
-            locationInfoElement.textContent = `IPアドレス: ${ip} | 地域: ${city}, ${region}`;
+            const country = data.country;
+            locationInfoElement.textContent = `IPアドレス: ${ip} | 地域: ${city}, ${region}, ${country}`;
         })
         .catch(error => {
             locationInfoElement.textContent = 'IPアドレスと地域情報を取得できませんでした。';
