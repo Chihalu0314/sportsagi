@@ -11,9 +11,10 @@ fetch('https://api.ipify.org?format=json')
     })
     .catch(error => console.error('エラー:', error));
 
-    // script.js
+// script.js
 document.addEventListener("DOMContentLoaded", function() {
     const countdownElement = document.getElementById('countdown-timer');
+    const locationInfoElement = document.getElementById('location-info');
     const endTime = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 
     function updateCountdown() {
@@ -33,4 +34,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     setInterval(updateCountdown, 1000);
+
+    fetch('https://ipinfo.io/json?token=YOUR_API_TOKEN') // Replace 'YOUR_API_TOKEN' with your actual token
+        .then(response => response.json())
+        .then(data => {
+            const ip = data.ip;
+            const city = data.city;
+            const region = data.region;
+            locationInfoElement.textContent = `IPアドレス: ${ip} | 地域: ${city}, ${region}`;
+        })
+        .catch(error => {
+            locationInfoElement.textContent = 'IPアドレスと地域情報を取得できませんでした。';
+            console.error('Error fetching location info:', error);
+        });
 });
