@@ -1,0 +1,54 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0;
+    padding: 10%;
+}
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.warning-container {
+    text-align: center;
+    border-radius: 10px;
+    animation: blink 1s linear infinite;
+    
+}
+
+.warning-header {
+    background-color: #ffffff;
+    color: white;
+    border-radius: 5px;
+}
+
+.logo {
+    padding-top: 25%;
+    max-width: 150px;
+}
+
+.warning-body {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+#call-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #0066ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.a {
+    font-size: 20px;
+}
